@@ -6,7 +6,8 @@ SylphxAI/codec is a TypeScript/Bun monorepo for universal media codec, image-pro
 
 - State: `active`
 - Layer: `foundation`
-- Machine manifest: [`.doctrine/project.json`](./.doctrine/project.json)
+- Vendor-neutral project manifest: [`project.manifest.json`](./project.manifest.json)
+- Sylphx Doctrine adapter: [`.doctrine/project.json`](./.doctrine/project.json)
 
 ## Goals
 
@@ -33,8 +34,11 @@ This repository owns the codec/conversion package monorepo, media format impleme
 - CLI package: [`packages/cli/`](./packages/cli/)
 - Processing packages: [`packages/transform/`](./packages/transform/), [`packages/color/`](./packages/color/), [`packages/filter/`](./packages/filter/), [`packages/composite/`](./packages/composite/), [`packages/draw/`](./packages/draw/), [`packages/histogram/`](./packages/histogram/), [`packages/metadata/`](./packages/metadata/), [`packages/text/`](./packages/text/)
 - WASM package: [`packages/wasm/`](./packages/wasm/)
+- README: [`README.md`](./README.md)
+- Vendor-neutral manifest: [`project.manifest.json`](./project.manifest.json)
 - Release workflow: [`.github/workflows/release.yml`](./.github/workflows/release.yml)
+- CI workflow: [`.github/workflows/ci.yml`](./.github/workflows/ci.yml)
 
 ## Delivery
 
-The repository has a reusable main-branch release workflow but no recorded pull-request CI workflow. Production proof is package tests, build for changed packages, codec fixture validation for affected formats, release workflow evidence, and package-registry readback for published versions. This manifest slice is documentation-only and does not change package code, codec behavior, CI, release, or WASM behavior.
+Pull requests and merge groups run package build/test validation, project-control boundary tests, and GroundAtlas package dogfooding in `.github/workflows/ci.yml`. Production proof is package tests, build for changed packages, codec fixture validation for affected formats, release workflow evidence, and package-registry readback for published versions. Generated `.groundatlas*` reports are evidence/navigation only, not source of truth. The current Biome/lint backlog is tracked as a separate adoption gap before lint becomes a required context.

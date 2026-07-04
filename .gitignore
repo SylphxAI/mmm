@@ -27,3 +27,6 @@ coverage/
 
 # Logs
 *.log
+
+# GroundAtlas generated evidence/navigation reports
+.groundatlas*/

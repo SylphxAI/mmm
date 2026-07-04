@@ -7,13 +7,15 @@
 	],
 	"scripts": {
 		"build": "bun run --filter '@sylphx/codec-core' build && bun run --filter '@sylphx/codec' build && bun run --filter '@sylphx/codec-cli' build",
-		"test": "bun run --filter '@sylphx/*' test",
+		"test": "bun run --filter '*' test",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"format": "biome format --write .",
 		"changeset": "changeset",
 		"version": "changeset version",
-		"release": "bun run build && echo \"Direct changeset publish is unsafe for Bun workspaces; use the Sylphx release workflow.\" && exit 1"
+		"release": "bun run build && echo \"Direct changeset publish is unsafe for Bun workspaces; use the Sylphx release workflow.\" && exit 1",
+		"validate": "bun run build && bun run test",
+		"test:project-control": "node --test test/project-control.node-test.mjs"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
