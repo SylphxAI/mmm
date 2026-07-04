@@ -74,6 +74,41 @@
         "type": "workflow",
         "name": "Release workflow",
         "location": ".github/workflows/release.yml"
+      },
+      {
+        "type": "documentation",
+        "name": "Repository README",
+        "location": "README.md"
+      },
+      {
+        "type": "manifest",
+        "name": "Vendor-neutral project manifest",
+        "location": "project.manifest.json"
+      },
+      {
+        "type": "workflow",
+        "name": "CI workflow",
+        "location": ".github/workflows/ci.yml"
+      },
+      {
+        "type": "test",
+        "name": "Project-control boundary test",
+        "location": "test/project-control.node-test.mjs"
+      },
+      {
+        "type": "documentation",
+        "name": "Project-control ADRs",
+        "location": "docs/adr/"
+      },
+      {
+        "type": "documentation",
+        "name": "Project-control specs",
+        "location": "docs/specs/"
+      },
+      {
+        "type": "documentation",
+        "name": "Security policy",
+        "location": "SECURITY.md"
       }
     ],
     "allowedDependencies": [
@@ -86,6 +121,11 @@
         "repo": "SylphxAI/.github",
         "surface": "reusable release workflow",
         "direction": "upstream-shared"
+      },
+      {
+        "repo": "SylphxAI/groundatlas",
+        "surface": "Released GroundAtlas package/action for vendor-neutral project manifest validation and fleet dogfooding.",
+        "direction": "peer-public"
       }
     ],
     "forbiddenCouplings": [
@@ -97,19 +137,19 @@
   "documentation": {
     "adr": {
       "path": "docs/adr/",
-      "status": "planned"
+      "status": "present"
     },
     "specs": {
-      "path": "PROGRESS.md",
+      "path": "docs/specs/ and PROGRESS.md",
       "status": "present"
     },
     "catalog": {
-      "path": ".doctrine/project.json",
+      "path": "PROJECT.md, README.md, and project.manifest.json",
       "status": "present"
     },
     "runbooks": {
-      "path": "docs/runbooks/",
-      "status": "planned"
+      "path": "AGENTS.md and SECURITY.md",
+      "status": "present"
     },
     "generatedReferences": {
       "path": "PROGRESS.md",
@@ -117,42 +157,48 @@
     }
   },
   "delivery": {
-    "ciModel": "legacy-ci",
-    "requiredContexts": [],
-    "deployPath": "Main-branch Release workflow delegates to SylphxAI/.github reusable release workflow for package publication; no pull-request CI workflow is recorded.",
-    "productionProof": "Package tests, build for changed packages, codec fixture validation for affected formats, successful release workflow, and package-registry readback for published versions.",
+    "ciModel": "repo-ci-with-groundatlas",
+    "requiredContexts": [
+      "ci"
+    ],
+    "deployPath": "Pull requests and merge groups run .github/workflows/ci.yml with bun run validate, project-control boundary tests, and GroundAtlas package dogfood; main-branch Release workflow delegates to SylphxAI/.github reusable release workflow with caller-side id-token: write.",
+    "productionProof": "bun run validate, CI evidence including GroundAtlas package dogfood, package tests/builds, successful Release workflow for package changes, and package-registry readback for published versions.",
     "recoveryClass": "forward-fix-only",
     "deployable": false,
     "packageRelease": {
       "publishesPackages": true,
-      "ecosystems": ["npm"],
+      "ecosystems": [
+        "npm"
+      ],
       "releaseIntent": "Changesets in .changeset/ declare version and changelog intent for codec workspace package releases.",
       "versionPr": "The release path must use a bot or GitHub App-owned Changesets version PR, with sylphx-release-bot as the default identity when installed.",
       "publisher": "Protected GitHub Actions release workflow publishes through OIDC/trusted publishing where supported, with any npm token kept as a bounded fallback.",
-      "requiredContexts": ["release"],
-      "publishProof": "Release workflow success plus npm registry readback and provenance or attestation evidence for published codec package versions."
+      "requiredContexts": [
+        "ci"
+      ],
+      "publishProof": "Successful Release workflow plus npm registry readback and provenance or attestation evidence for published codec package versions."
     }
   },
   "adoption": {
-    "status": "baseline",
+    "status": "adopted",
     "gaps": [
-      {
-        "id": "pr-ci-missing",
-        "description": "No pull_request or merge_group CI workflow is recorded; only the reusable main-branch release workflow exists.",
-        "owner": "SylphxAI/codec",
-        "target": "central ADR-29 required-context rollout or repo-local package validation gate"
-      },
-      {
-        "id": "readme-missing",
-        "description": "The repository has PROGRESS.md but no top-level README.md explaining the package set and consumer contract.",
-        "owner": "SylphxAI/codec",
-        "target": "next codec documentation pass"
-      },
       {
         "id": "codec-licensing-and-forward-fix",
         "description": "Complex codec and WASM support can involve external licensing and published-package recovery concerns; record runbooks before production lifecycle promotion.",
         "owner": "SylphxAI/codec",
         "target": "before production lifecycle promotion"
+      },
+      {
+        "id": "lint-baseline",
+        "description": "Existing `bun run lint` / `biome check .` reports a broad pre-existing formatting and lint backlog across package source and Claude adapter files. The GroundAtlas CI gate uses build/test validation now and keeps lint cleanup as a separate package-quality slice instead of hiding it.",
+        "owner": "SylphxAI/codec",
+        "target": "dedicated codec lint-baseline cleanup PR before making lint a required context"
+      },
+      {
+        "id": "workspace-build-baseline",
+        "description": "Existing all-workspace build (`bun run --filter * build`) is not yet green because optional WASM tooling and some mconv declaration-build configs are incomplete. The current CI gate preserves the existing release-critical root build while running all workspace tests.",
+        "owner": "SylphxAI/codec",
+        "target": "dedicated mconv/WASM build-baseline cleanup before requiring all workspace builds"
       }
     ]
   }
