@@ -1,16 +1,23 @@
 {
-	"name": "@mconv/wasm",
-	"private": true,
-	"version": "0.0.1",
-	"type": "module",
-	"main": "./pkg/mconv_wasm.js",
-	"types": "./pkg/mconv_wasm.d.ts",
-	"files": ["pkg"],
-	"scripts": {
-		"build": "wasm-pack build --target web --out-dir pkg",
-		"build:node": "wasm-pack build --target nodejs --out-dir pkg-node",
-		"build:threads": "RUSTFLAGS='-C target-feature=+atomics,+bulk-memory,+mutable-globals' wasm-pack build --target web --out-dir pkg-mt -- --features threads",
-		"test": "cargo test",
-		"bench": "cargo bench"
-	}
+  "name": "@mconv/wasm",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./pkg/mconv_wasm.js",
+  "types": "./pkg/mconv_wasm.d.ts",
+  "files": [
+    "pkg"
+  ],
+  "scripts": {
+    "build": "wasm-pack build --target web --out-dir pkg",
+    "build:node": "wasm-pack build --target nodejs --out-dir pkg-node",
+    "build:threads": "RUSTFLAGS='-C target-feature=+atomics,+bulk-memory,+mutable-globals' wasm-pack build --target web --out-dir pkg-mt -- --features threads",
+    "test": "cargo test",
+    "bench": "cargo bench",
+    "lint:fix": "biome check --write ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.12",
+    "@sylphx/biome-config": "^0.4.1"
+  }
 }

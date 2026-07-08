@@ -1,25 +1,26 @@
 {
-	"name": "codec",
-	"private": true,
-	"type": "module",
-	"workspaces": [
-		"packages/*"
-	],
-	"scripts": {
-		"build": "bun run --filter '@sylphx/codec-core' build && bun run --filter '@sylphx/codec' build && bun run --filter '@sylphx/codec-cli' build",
-		"test": "bun run --filter '*' test",
-		"lint": "biome check .",
-		"lint:fix": "biome check --write .",
-		"format": "biome format --write .",
-		"changeset": "changeset",
-		"version": "changeset version",
-		"release": "bun run build && echo \"Direct changeset publish is unsafe for Bun workspaces; use the Sylphx release workflow.\" && exit 1",
-		"validate": "bun run build && bun run test",
-		"test:project-control": "node --test test/project-control.node-test.mjs"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"@changesets/cli": "^2.27.10"
-	},
-	"packageManager": "bun@1.3.12"
+  "name": "codec",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "bun run --filter '@sylphx/codec-core' build && bun run --filter '@sylphx/codec' build && bun run --filter '@sylphx/codec-cli' build",
+    "test": "bun run --filter '*' test",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "bun run build && echo \"Direct changeset publish is unsafe for Bun workspaces; use the Sylphx release workflow.\" && exit 1",
+    "validate": "biome check . && bun run build && bun run test",
+    "test:project-control": "node --test test/project-control.node-test.mjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.27.10",
+    "@sylphx/biome-config": "^0.4.1"
+  },
+  "packageManager": "bun@1.3.12"
 }

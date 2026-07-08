@@ -1,49 +1,52 @@
 {
-	"name": "@sylphx/codec-cli",
-	"version": "1.0.2",
-	"type": "module",
-	"description": "Universal media converter CLI - Pure TypeScript",
-	"bin": {
-		"codec": "./dist/index.js"
-	},
-	"main": "./dist/index.js",
-	"files": [
-		"dist"
-	],
-	"scripts": {
-		"build": "bun build ./src/index.ts --outdir ./dist --target node --minify && chmod +x ./dist/index.js",
-		"dev": "bun run ./src/index.ts",
-		"test": "bun test"
-	},
-	"dependencies": {
-		"@sylphx/codec-core": "workspace:*",
-		"@sylphx/codec": "workspace:*"
-	},
-	"devDependencies": {
-		"@types/node": "^22.10.0"
-	},
-	"keywords": [
-		"codec",
-		"cli",
-		"convert",
-		"media",
-		"image",
-		"video",
-		"audio",
-		"png",
-		"jpeg",
-		"webp",
-		"gif",
-		"mp4",
-		"svg"
-	],
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/SylphxAI/Codec.git",
-		"directory": "packages/cli"
-	},
-	"publishConfig": {
-		"access": "public"
-	}
+  "name": "@sylphx/codec-cli",
+  "version": "1.0.2",
+  "type": "module",
+  "description": "Universal media converter CLI - Pure TypeScript",
+  "bin": {
+    "codec": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target node --minify && chmod +x ./dist/index.js",
+    "dev": "bun run ./src/index.ts",
+    "test": "bun test",
+    "lint:fix": "biome check --write ."
+  },
+  "dependencies": {
+    "@sylphx/codec-core": "workspace:*",
+    "@sylphx/codec": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@biomejs/biome": "^2.3.12",
+    "@sylphx/biome-config": "^0.4.1"
+  },
+  "keywords": [
+    "codec",
+    "cli",
+    "convert",
+    "media",
+    "image",
+    "video",
+    "audio",
+    "png",
+    "jpeg",
+    "webp",
+    "gif",
+    "mp4",
+    "svg"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SylphxAI/Codec.git",
+    "directory": "packages/cli"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

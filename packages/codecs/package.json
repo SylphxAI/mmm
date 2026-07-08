@@ -1,55 +1,58 @@
 {
-	"name": "@sylphx/codec",
-	"version": "1.1.1",
-	"type": "module",
-	"description": "Pure TypeScript media codecs - image, video, audio, subtitle",
-	"main": "./src/index.ts",
-	"types": "./src/index.ts",
-	"exports": {
-		".": {
-			"bun": "./src/index.ts",
-			"import": "./dist/index.js"
-		}
-	},
-	"files": [
-		"dist"
-	],
-	"scripts": {
-		"build": "bun build ./src/index.ts --outdir ./dist --target browser",
-		"test": "bun test"
-	},
-	"dependencies": {
-		"@sylphx/codec-core": "workspace:*"
-	},
-	"devDependencies": {
-		"typescript": "^5.7.2"
-	},
-	"keywords": [
-		"codec",
-		"media",
-		"image",
-		"video",
-		"audio",
-		"subtitle",
-		"png",
-		"jpeg",
-		"gif",
-		"webp",
-		"mp4",
-		"mkv",
-		"wav",
-		"flac",
-		"svg",
-		"typescript",
-		"pure"
-	],
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/SylphxAI/Codec.git",
-		"directory": "packages/codecs"
-	},
-	"publishConfig": {
-		"access": "public"
-	}
+  "name": "@sylphx/codec",
+  "version": "1.1.1",
+  "type": "module",
+  "description": "Pure TypeScript media codecs - image, video, audio, subtitle",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target browser",
+    "test": "bun test",
+    "lint:fix": "biome check --write ."
+  },
+  "dependencies": {
+    "@sylphx/codec-core": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "@biomejs/biome": "^2.3.12",
+    "@sylphx/biome-config": "^0.4.1"
+  },
+  "keywords": [
+    "codec",
+    "media",
+    "image",
+    "video",
+    "audio",
+    "subtitle",
+    "png",
+    "jpeg",
+    "gif",
+    "webp",
+    "mp4",
+    "mkv",
+    "wav",
+    "flac",
+    "svg",
+    "typescript",
+    "pure"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SylphxAI/Codec.git",
+    "directory": "packages/codecs"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
