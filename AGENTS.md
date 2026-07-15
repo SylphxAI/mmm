@@ -1,13 +1,25 @@
-# Agent Instructions
+# codec — local agent notes only
 
-This repository consumes the Sylphx engineering doctrine from [SylphxAI/doctrine](https://github.com/SylphxAI/doctrine).
+Doctrine and fleet delivery law live in the **host always-on constitution**
+(`~/.grok/AGENTS.md` / Doctrine template). This file must **not** restate,
+weaken, or fork that law (including PR-vs-direct-trunk delivery).
 
-Before changing files here:
+Local truth: `PROJECT.md`, `.doctrine/project.json` when present.
 
-- Read [PROJECT.md](./PROJECT.md), [`project.manifest.json`](./project.manifest.json), and [`.doctrine/project.json`](./.doctrine/project.json) for this repository's goal, lifecycle, boundary, public surfaces, and adoption gaps.
-- Read `SylphxAI/doctrine` `AGENTS.md`, `PRINCIPLES.md`, and `ADR.md`, then load any triggered standards.
-- Keep codec behavior generic to media decoding, encoding, conversion, and processing; consuming products own their media workflows.
+## Boundary hazards
 
-Do not add product-specific media pipeline behavior here. This repository owns codec and conversion packages only.
+- Never commit secrets, tokens, `.env` files, or credentials.
 
-Generated `.groundatlas*` reports are evidence/navigation only. Do not treat them as source of truth.
+## Local commands
+
+- `bun run test`
+- `bun run lint`
+- `bun run build`
+- `bun run validate`
+- Prefer the **narrowest** affected check before full workspace runs.
+- Report layers honestly: local diff · trunk FF · deploy · prod proof (do not collapse).
+
+## Validation notes
+
+- Prefer the **narrowest** affected check before full workspace runs.
+- Report layers honestly: local diff · trunk FF · deploy · prod proof (do not collapse).
