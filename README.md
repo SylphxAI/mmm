@@ -1,5 +1,10 @@
 # SylphxAI Codec
 
+<p align="center">
+  <img src="docs/banner.png" alt="codec banner" width="100%" />
+</p>
+
+
 Universal media codec, image-processing, conversion, and CLI packages for the SylphxAI ecosystem. Codec is a foundation library: it owns reusable codec primitives and package contracts, not application-specific media workflows.
 
 ## Packages
