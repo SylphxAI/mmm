@@ -1,9 +1,8 @@
 # SylphxAI Codec
 
 <p align="center">
-  <img src="docs/banner.png" alt="codec banner" width="100%" />
+  <img src="https://mark.sylphx.com/api/v1/banner?type=firefly&theme=tokyonight&text=codec&desc=TypeScript%2FBun+monorepo+for+universal+media+codec%2C+image-processing%2C+and+convers&height=200&animation=rise&credit=0" alt="codec — Sylphx Mark banner" width="100%" />
 </p>
-
 
 Universal media codec, image-processing, conversion, and CLI packages for the SylphxAI ecosystem. Codec is a foundation library: it owns reusable codec primitives and package contracts, not application-specific media workflows.
 
