@@ -157,12 +157,12 @@
     }
   },
   "delivery": {
-    "ciModel": "repo-ci-with-groundatlas",
+    "ciModel": "repo-ci",
     "requiredContexts": [
       "ci"
     ],
-    "deployPath": "Pull requests and merge groups run .github/workflows/ci.yml with bun run validate, project-control boundary tests, and GroundAtlas package dogfood; main-branch Release workflow delegates to SylphxAI/.github reusable release workflow with caller-side id-token: write.",
-    "productionProof": "bun run validate, CI evidence including GroundAtlas package dogfood, package tests/builds, successful Release workflow for package changes, and package-registry readback for published versions.",
+    "deployPath": "Pull requests and merge groups run .github/workflows/ci.yml with bun run validate, project-control boundary tests; main-branch Release workflow delegates to SylphxAI/.github reusable release workflow with caller-side id-token: write.",
+    "productionProof": "bun run validate, CI evidence, package tests/builds, successful Release workflow for package changes, and package-registry readback for published versions.",
     "recoveryClass": "forward-fix-only",
     "deployable": false,
     "packageRelease": {
