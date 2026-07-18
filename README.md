@@ -37,3 +37,8 @@ Package releases run through the shared Sylphx release workflow and are complete
 ## License
 
 MIT © SylphxAI
+
+
+## GroundAtlas
+
+GroundAtlas package dogfood is **retired** (Control Plane ADR-0014). Do not re-add required groundatlas CI jobs.
