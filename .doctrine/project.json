@@ -121,11 +121,6 @@
         "repo": "SylphxAI/.github",
         "surface": "reusable release workflow",
         "direction": "upstream-shared"
-      },
-      {
-        "repo": "SylphxAI/groundatlas",
-        "surface": "Released GroundAtlas package/action for vendor-neutral project manifest validation and fleet dogfooding.",
-        "direction": "peer-public"
       }
     ],
     "forbiddenCouplings": [
@@ -190,7 +185,7 @@
       },
       {
         "id": "lint-baseline",
-        "description": "Existing `bun run lint` / `biome check .` reports a broad pre-existing formatting and lint backlog across package source and Claude adapter files. The GroundAtlas CI gate uses build/test validation now and keeps lint cleanup as a separate package-quality slice instead of hiding it.",
+        "description": "Existing `bun run lint` / `biome check .` reports a broad pre-existing formatting and lint backlog across package source and Claude adapter files. Keep lint cleanup as a separate package-quality slice instead of hiding it.",
         "owner": "SylphxAI/codec",
         "target": "dedicated codec lint-baseline cleanup PR before making lint a required context"
       },
