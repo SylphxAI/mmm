@@ -41,9 +41,4 @@ This repository owns the codec/conversion package monorepo, media format impleme
 
 ## Delivery
 
-Pull requests and merge groups run package build/test validation, project-control boundary tests, and GroundAtlas package dogfooding in `.github/workflows/ci.yml`. Production proof is package tests, build for changed packages, codec fixture validation for affected formats, release workflow evidence, and package-registry readback for published versions. Generated `.groundatlas*` files plus GroundAtlas JSON/Markdown reports are evidence/navigation only, not source of truth. The current Biome/lint backlog is tracked as a separate adoption gap before lint becomes a required context.
-
-
-## GroundAtlas
-
-GroundAtlas package dogfood is **retired** (Control Plane ADR-0014). Do not re-add required groundatlas CI jobs.
+Pull requests and merge groups run package build/test validation in `.github/workflows/ci.yml`. Production proof is package tests, build for changed packages, codec fixture validation for affected formats, release workflow evidence, and package-registry readback for published versions. The current Biome/lint backlog is tracked separately before lint becomes required.

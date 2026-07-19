@@ -22,23 +22,16 @@ Codec owns generic codec/conversion package code, tests, progress tracking, and 
 ```bash
 bun install --frozen-lockfile
 bun run validate
-node --test test/project-control.node-test.mjs
-npm exec --yes --package groundatlas@0.1.3 -- ga fleet . --out .groundatlas-pilot --require-atlas --strict --json
 ```
 
 `bun run validate` runs the current release-critical package build and all-workspace package test baseline. The existing Biome/lint backlog is tracked in `.doctrine/project.json` as `lint-baseline` and should be fixed in a dedicated package-quality slice before lint becomes required CI. The all-workspace build backlog is tracked separately as `workspace-build-baseline`; CI preserves the existing release-critical build while running all workspace tests.
 
 ## Project Control and Release Proof
 
-This repository dogfoods [GroundAtlas](https://github.com/SylphxAI/groundatlas) through CI. The vendor-neutral project facts live in `project.manifest.json`; Sylphx-specific governance facts stay in `.doctrine/project.json`; generated `.groundatlas*` files plus GroundAtlas JSON/Markdown reports are evidence/navigation only, not source of truth.
+Repository metadata for tools and agents lives in `project.manifest.json`.
 
 Package releases run through the shared Sylphx release workflow and are complete only after CI, the Release workflow, and npm registry readback for changed codec packages. Codec behavior changes additionally require package tests, fixture evidence, and consumer smoke evidence for affected codec contracts.
 
 ## License
 
 MIT © SylphxAI
-
-
-## GroundAtlas
-
-GroundAtlas package dogfood is **retired** (Control Plane ADR-0014). Do not re-add required groundatlas CI jobs.

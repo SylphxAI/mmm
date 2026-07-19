@@ -1,5 +1,4 @@
 {
-	"$schema": "https://raw.githubusercontent.com/SylphxAI/groundatlas/main/schemas/project.manifest.schema.json",
 	"schemaVersion": 1,
 	"project": {
 		"id": "codec",
@@ -39,7 +38,6 @@
 		],
 		"tests": [
 			"packages/",
-			"test/project-control.node-test.mjs",
 			".github/workflows/ci.yml"
 		],
 		"runbooks": [
@@ -77,7 +75,7 @@
 			"type": "docs",
 			"name": "Repository README",
 			"path": "README.md",
-			"description": "Public overview, package map, validation, project-control, and release-proof entry point."
+			"description": "Public overview, package map, validation, and release-proof entry point."
 		},
 		{
 			"type": "docs",
@@ -101,7 +99,7 @@
 			"type": "docs",
 			"name": "Doctrine adapter manifest",
 			"path": ".doctrine/project.json",
-			"description": "Sylphx Doctrine adapter and org-local governance catalog; not the vendor-neutral GroundAtlas default."
+			"description": "Repository-local lifecycle and delivery metadata."
 		}
 	],
 	"commands": [
@@ -114,15 +112,6 @@
 			"name": "validate",
 			"command": "bun run validate",
 			"purpose": "Build release-critical packages and run the package test suite."
-		},
-		{
-			"name": "test:project-control",
-			"command": "node --test test/project-control.node-test.mjs",
-			"purpose": "Verify neutral manifest, Doctrine adapter, CI gate, and release caller boundary."
 		}
-	],
-	"adoption": {
-		"status": "adopted",
-		"notes": "Vendor-neutral project.manifest retained as optional metadata. GroundAtlas package dogfood retired (Control Plane ADR-0014). .doctrine/project.json remains the Sylphx Doctrine adapter and local governance catalog."
-	}
+	]
 }
