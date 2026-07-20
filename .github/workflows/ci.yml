@@ -7,15 +7,17 @@ on:
     branches: [main]
   merge_group:
     types: [checks_requested]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  ci:
+  product:
+    name: Build & Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -25,5 +27,12 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Validate package workspace
-        run: bun run validate
+      - name: Build packages
+        run: bun run build
+
+      - name: Test packages
+        run: bun run test
+
+      - name: Residual Biome check (informational)
+        continue-on-error: true
+        run: bun run lint
