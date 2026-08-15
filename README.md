@@ -24,11 +24,11 @@ bun install --frozen-lockfile
 bun run validate
 ```
 
-`bun run validate` runs the current release-critical package build and all-workspace package test baseline. The existing Biome/lint backlog is tracked in `.doctrine/project.json` as `lint-baseline` and should be fixed in a dedicated package-quality slice before lint becomes required CI. The all-workspace build backlog is tracked separately as `workspace-build-baseline`; CI preserves the existing release-critical build while running all workspace tests.
+`bun run validate` runs the current release-critical package build and all-workspace package test baseline. The existing Biome/lint backlog is tracked in `` as `lint-baseline` and should be fixed in a dedicated package-quality slice before lint becomes required CI. The all-workspace build backlog is tracked separately as `workspace-build-baseline`; CI preserves the existing release-critical build while running all workspace tests.
 
 ## Project Control and Release Proof
 
-Repository metadata for tools and agents lives in `project.manifest.json`.
+Repository metadata for tools and agents lives in ``.
 
 Package releases run through the shared Sylphx release workflow and are complete only after CI, the Release workflow, and npm registry readback for changed codec packages. Codec behavior changes additionally require package tests, fixture evidence, and consumer smoke evidence for affected codec contracts.
 

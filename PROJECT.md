@@ -6,8 +6,8 @@ SylphxAI/codec is a TypeScript/Bun monorepo for universal media codec, image-pro
 
 - State: `active`
 - Layer: `foundation`
-- Vendor-neutral project manifest: [`project.manifest.json`](./project.manifest.json)
-- Sylphx Doctrine adapter: [`.doctrine/project.json`](./.doctrine/project.json)
+- Vendor-neutral project manifest: 
+- Sylphx Doctrine adapter: 
 
 ## Goals
 
@@ -35,7 +35,7 @@ This repository owns the codec/conversion package monorepo, media format impleme
 - Processing packages: [`packages/transform/`](./packages/transform/), [`packages/color/`](./packages/color/), [`packages/filter/`](./packages/filter/), [`packages/composite/`](./packages/composite/), [`packages/draw/`](./packages/draw/), [`packages/histogram/`](./packages/histogram/), [`packages/metadata/`](./packages/metadata/), [`packages/text/`](./packages/text/)
 - WASM package: [`packages/wasm/`](./packages/wasm/)
 - README: [`README.md`](./README.md)
-- Vendor-neutral manifest: [`project.manifest.json`](./project.manifest.json)
+- Vendor-neutral manifest: 
 - Release workflow: [`.github/workflows/release.yml`](./.github/workflows/release.yml)
 - CI workflow: [`.github/workflows/ci.yml`](./.github/workflows/ci.yml)
 
